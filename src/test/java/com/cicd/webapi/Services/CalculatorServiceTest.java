@@ -13,7 +13,7 @@ class CalculatorServiceTest {
     void shouldAddTwoNumbers() {
         int result = calculatorService.add(2, 3);
 
-        assertEquals(5, result);
+        assertEquals(99, result);
     }
 
     @Test
