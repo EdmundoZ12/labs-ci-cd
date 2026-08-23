@@ -3,6 +3,7 @@ package com.cicd.webapi.Services;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorServiceTest {
 
@@ -28,5 +29,18 @@ class CalculatorServiceTest {
         int result = calculatorService.multiply(3, 4);
 
         assertEquals(12, result);
+    }
+
+    @Test
+    void shouldDivideTwoNumbers() {
+        double result = calculatorService.divide(10, 2);
+        assertEquals(5, result);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> calculatorService.divide(10, 0));
+
+        assertEquals("Division by zero", exception.getMessage());
+
     }
 }
